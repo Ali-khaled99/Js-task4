@@ -4,14 +4,13 @@ let nameInput = document.getElementById("nameInput")
 let signInEmail = document.getElementById("signInEmail")
 let signInPassword = document.getElementById("signInPassword")
 let usersList = [];
-let baseURL = ''
+var baseURL = ''
 
 
 
 if(localStorage.getItem("users") != null){
     usersList = JSON.parse(localStorage.getItem("users"))
 }
-
 
 let userName = localStorage.getItem("Username")
 if(userName){
@@ -81,9 +80,9 @@ function logIn(){
         if (usersList[i].userEmail == email && usersList[i].userPassword == password) {
             localStorage.setItem('Username', usersList[i].userName)
             if (baseURL == '/') {
-                location.replace('https://' + location.hostname + '/loggedin.html')
+                location.replace('https://' + location.hostname + 'loggedin.html')
             } else {
-                location.replace(baseURL + '/loggedin.html')
+                location.replace(baseURL + 'loggedin.html')
             }
         } else {
             document.getElementById('error').innerHTML = '<span class="m-3 text-danger">invalid email or password</span>'
